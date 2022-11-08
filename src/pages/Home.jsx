@@ -7,7 +7,7 @@ function Home(props) {
   return (
     <div>
       <Popular />
-      <Vegetarian/>
+      <Vegetarian />
     </div>
   );
 }

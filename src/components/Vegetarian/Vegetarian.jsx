@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import styles from "./vegetarian.module.scss";
 
 function Vegetarian() {
   const [vegetarian, setVegetarian] = useState([]);
@@ -29,7 +30,8 @@ function Vegetarian() {
   };
 
   return (
-    <div>
+    <div className={styles.color}>
+      Testowy napis do pokolorowania
       <Wrapper>
         <h3>Vegetarian Recipes</h3>
         <Splide
