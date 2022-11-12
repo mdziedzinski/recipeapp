@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import styles from "./vegetarian.module.scss";
+import { Link } from "react-router-dom";
 
 function Vegetarian() {
   const [vegetarian, setVegetarian] = useState([]);
@@ -44,17 +45,19 @@ function Vegetarian() {
           {vegetarian.map((recipe) => {
             return (
               <SplideSlide key={recipe.id}>
+                  <Link to={"/recipe/" + recipe.id}>
                 <Card>
-                  <div className="recipeImageText">
-                    <p className="recipeAboveTitleText">
-                      {recipe.readyInMinutes} minutes |{" "}
-                      {recipe.extendedIngredients.length} ingredients
-                    </p>
-                    <p className="recipeTitle"> {recipe.title}</p>
-                  </div>
-                  <img src={recipe.image} alt={recipe.title} />
-                  <Gradient />
+                    <div className="recipeImageText">
+                      <p className="recipeAboveTitleText">
+                        {recipe.readyInMinutes} minutes |{" "}
+                        {recipe.extendedIngredients.length} ingredients
+                      </p>
+                      <p className="recipeTitle"> {recipe.title}</p>
+                    </div>
+                    <img src={recipe.image} alt={recipe.title} />
+                    <Gradient />
                 </Card>
+                  </Link>
               </SplideSlide>
             );
           })}
