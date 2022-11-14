@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
-import styles from "./vegetarian.module.scss";
+import styles from "./Vegetarian.module.scss";
 import { Link } from "react-router-dom";
+import Grid from "./Grid";
 
 function Vegetarian() {
   const [vegetarian, setVegetarian] = useState([]);
@@ -35,33 +36,25 @@ function Vegetarian() {
       Testowy napis do pokolorowania
       <Wrapper>
         <h3>Vegetarian Recipes</h3>
-        <Splide
-          options={{
-            perPage: 3,
-            drag: "free",
-            gap: "1rem",
-          }}
-        >
+        <Grid>
           {vegetarian.map((recipe) => {
             return (
-              <SplideSlide key={recipe.id}>
-                  <Link to={"/recipe/" + recipe.id}>
+              <Link to={"/recipe/" + recipe.id}>
                 <Card>
-                    <div className="recipeImageText">
-                      <p className="recipeAboveTitleText">
-                        {recipe.readyInMinutes} minutes |{" "}
-                        {recipe.extendedIngredients.length} ingredients
-                      </p>
-                      <p className="recipeTitle"> {recipe.title}</p>
-                    </div>
-                    <img src={recipe.image} alt={recipe.title} />
-                    <Gradient />
+                  <div className="recipeImageText">
+                    <p className="recipeAboveTitleText">
+                      {recipe.readyInMinutes} minutes |{" "}
+                      {recipe.extendedIngredients.length} ingredients
+                    </p>
+                    <p className="recipeTitle"> {recipe.title}</p>
+                  </div>
+                  <img src={recipe.image} alt={recipe.title} />
+                  <Gradient />
                 </Card>
-                  </Link>
-              </SplideSlide>
+              </Link>
             );
           })}
-        </Splide>
+        </Grid>
       </Wrapper>
     </div>
   );

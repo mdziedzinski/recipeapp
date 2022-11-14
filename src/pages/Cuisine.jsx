@@ -14,7 +14,7 @@ const Cuisine = () => {
     const recipes = await data.json();
     setCuisine(recipes.results);
   };
-  
+
   useEffect(() => {
     getCuisine(params.type);
   }, [params.type]);
@@ -23,10 +23,12 @@ const Cuisine = () => {
     <Grid>
       {cuisine.map((item) => {
         return (
-          <Card key={item.id}>
-            <img src={item.image} alt="" />
-            <h4>{item.title}</h4>
-          </Card>
+          <Link key={item.id} to={`/recipe/` + item.id}>
+            <Card key={item.id}>
+              <img src={item.image} alt="" />
+              <h4>{item.title}</h4>
+            </Card>
+          </Link>
         );
       })}
     </Grid>
