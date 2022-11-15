@@ -5,6 +5,9 @@ import "@splidejs/react-splide/css";
 import styles from "./Vegetarian.module.scss";
 import { Link } from "react-router-dom";
 import Grid from "./Grid";
+import Card from "./Card";
+import Wrapper from "./Wrapper";
+import Gradient from "./Gradient";
 
 function Vegetarian() {
   const [vegetarian, setVegetarian] = useState([]);
@@ -32,8 +35,7 @@ function Vegetarian() {
   };
 
   return (
-    <div className={styles.color}>
-      Testowy napis do pokolorowania
+    <div>
       <Wrapper>
         <h3>Vegetarian Recipes</h3>
         <Grid>
@@ -41,12 +43,12 @@ function Vegetarian() {
             return (
               <Link to={"/recipe/" + recipe.id}>
                 <Card>
-                  <div className="recipeImageText">
-                    <p className="recipeAboveTitleText">
+                  <div className={styles.recipeImageText}>
+                    <p className={styles.recipeAboveTitleText}>
                       {recipe.readyInMinutes} minutes |{" "}
                       {recipe.extendedIngredients.length} ingredients
                     </p>
-                    <p className="recipeTitle"> {recipe.title}</p>
+                    <p className={styles.recipeTitle}> {recipe.title}</p>
                   </div>
                   <img src={recipe.image} alt={recipe.title} />
                   <Gradient />
@@ -59,61 +61,5 @@ function Vegetarian() {
     </div>
   );
 }
-
-const Wrapper = styled.div`
-  margin: 4rem 0rem;
-`;
-
-const Card = styled.div`
-  min-height: 15rem;
-  border-radius: 2rem;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-
-  img {
-    border-radius: 2rem;
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 100%:
-    object-fit: cover;
-
-  }
-
-.recipeImageText {
-  position: absolute;
-  z-index: 10;
-  margin: 1rem;
-
-}
-.recipeTitle, .recipeAboveTitleText {
-  
-padding-inline: 1rem;
-color: white;
-font-weight: 600;
-font-size: 1rem;
-  
-
-}
-
-.recipeAboveTitleText {
-  font-weight: 400;
-  color: rgba(234, 234, 234, 0.95);
-}
-
-
-
-`;
-
-const Gradient = styled.div`
-  z-index: 3;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.85));
-`;
 
 export default Vegetarian;

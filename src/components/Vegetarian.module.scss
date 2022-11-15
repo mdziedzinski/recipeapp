@@ -1,3 +1,22 @@
-.color {
-    color: red;
+.recipeImageText {
+  position: absolute;
+  z-index: 10;
+  margin: 1rem;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.recipeTitle {
+  padding-inline: 1rem;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.recipeAboveTitleText {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: rgba(234, 234, 234, 0.95);
 }
