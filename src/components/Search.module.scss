@@ -1,0 +1,25 @@
+.FormStyle {
+  margin: 2rem 2rem;
+
+  div {
+    width: 20rem;
+    
+    position: relative;
+  }
+  input {
+    border: none;
+    background: #d5eeee;
+    color: black;
+    font-size: 1rem;
+    border: none;
+    padding: 1rem 3rem;
+    width: 100%;
+  }
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(100%, -50%);
+    color: black;
+  }
+}

@@ -1,43 +1,22 @@
 import Pages from "./pages/Pages";
 import Category from "./components/Category";
 import { BrowserRouter } from "react-router-dom";
-import Search from "./components/Search";
+
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { GiKnifeFork } from "react-icons/gi";
+import Nav from "./components/Nav";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Nav>
-          <Logo to={`/`}>
-            {" "}
-            <GiKnifeFork />
-            Homepage
-          </Logo>
-        </Nav>
-        <Search />
+        <Nav />
         <Category />
         <Pages />
       </BrowserRouter>
     </div>
   );
 }
-
-const Logo = styled(Link)`
-  text-decoration: none;
-  font-size: 1.5rem;
-`;
-
-const Nav = styled.div`
-  padding: 4rem 0rem;
-  display: flex;
-  justify-content: flex-start;
-  aline-items: center;
-  svg {
-    font-size: 2rem;
-  }
-`;
 
 export default App;

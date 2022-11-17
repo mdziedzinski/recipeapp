@@ -1,0 +1,48 @@
+.detailWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid 5px #d5eeee;
+  margin: 5% auto;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  padding: 1em;
+  line-height: 1.5em;
+
+  .image{
+    display: flex;
+    flex-direction: column;
+  justify-content: center;
+  align-items: center;
+    
+  }
+
+  h1 {
+    text-align: center;
+    padding: 1rem;
+  }
+
+  h2{
+    margin: 1rem;
+  }
+
+  img {
+    border-radius: 5px;
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    margin: 1rem;
+    max-width: 55vw;
+  }
+
+  ul {
+    columns: 2;
+    margin: 1rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 1rem;
+  }
+
+  
+}

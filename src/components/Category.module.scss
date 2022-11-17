@@ -1,0 +1,44 @@
+.category {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.categoryLink {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  margin-right: 2rem;
+  text-decoration: none;
+  background: #d5eeee;
+  color: black;
+  padding: 0.5rem;
+  width: 7rem;
+
+  h4 {
+    color: black;
+    font-size: 1rem;
+  }
+
+  svg {
+    font-size: 1.5rem;
+  }
+
+  &:hover {
+    background: #a7b4e8;
+    transition: 0.5s;
+  }
+
+  &:global.active {
+    background-color: #7886f1;
+  }
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0rem;
+}

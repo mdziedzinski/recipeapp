@@ -1,64 +1,34 @@
-import { FaPizzaSlice, FaHamburger } from "react-icons/fa";
-import { GiNoodles, GiChopsticks } from "react-icons/gi";
-import styled from "styled-components";
+import * as React from "react";
 import { NavLink } from "react-router-dom";
-
-import React from "react";
+import { FaDrumstickBite, FaEgg, FaCarrot } from "react-icons/fa";
+import styles from "./Category.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWheatAwnCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 
 function Category(props) {
   return (
-    <List>
-      <SLink to={"/cuisine/Italian"}>
-        <FaPizzaSlice />
-        <h4>Italian</h4>
-      </SLink>
-      <SLink to={"/cuisine/American"}>
-        <FaHamburger />
-        <h4>American</h4>
-      </SLink>
-      <SLink to={"/cuisine/Thai"}>
-        <GiNoodles />
-        <h4>Thai</h4>
-      </SLink>
-      <SLink to={"/cuisine/Japanese"}>
-        <GiChopsticks />
-        <h4>Japanese</h4>
-      </SLink>
-    </List>
+    <div className={styles.category}>
+      <h1>What do you want to cook?</h1>
+      <div className={styles.list}>
+        <NavLink className={styles.categoryLink} to={"/diet/glutenfree"}>
+          <FontAwesomeIcon icon={faWheatAwnCircleExclamation} />
+          <h4>Gluten Free</h4>
+        </NavLink>
+        <NavLink className={styles.categoryLink} to={"/diet/ketogenic"}>
+          <FaDrumstickBite />
+          <h4>Ketogenic</h4>
+        </NavLink>
+        <NavLink className={styles.categoryLink} to={"/diet/vegetarian"}>
+          <FaEgg />
+          <h4>Vegetarian</h4>
+        </NavLink>
+        <NavLink className={styles.categoryLink} to={"/diet/Vegan"}>
+          <FaCarrot />
+          <h4>Vegan</h4>
+        </NavLink>
+      </div>
+    </div>
   );
 }
-
-const List = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 2rem 0rem;
-`;
-
-const SLink = styled(NavLink)`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10%;
-  margin-right: 2rem;
-  text-decoration: none;
-  background: #d5eeee;
-  color: black;
-  width: 6rem;
-
-  h4 {
-    color: black;
-    font-size: 1rem;
-  }
-
-  svg {
-    font-size: 1.5rem;
-  }
-
-  &.active {
-    background: #ed7e77;
-    transition: 0.5s;
-  }
-`;
 
 export default Category;

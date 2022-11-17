@@ -3,6 +3,10 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Grid from "../components/Grid";
+import Gradient from "../components/Gradient";
+import Card from "../components/Card";
+import styles from './Searched.module.scss'
 
 const Searched = () => {
   const [searchedRecipes, setSearchedRecipes] = useState([]);
@@ -24,10 +28,15 @@ const Searched = () => {
     <Grid>
       {searchedRecipes.map((item) => {
         return (
-          <Link to={`/recipe/` + item.id}>
+      
+          <Link key={item.id} to={`/recipe/` + item.id}>
+            
             <Card key={item.id}>
+              <div className={styles.recipeImageText}>
+                <p className={styles.recipeTitle}> {item.title}</p>
+              </div>
               <img src={item.image} alt={item.title} />
-              <h4>{item.title}</h4>
+              <Gradient />
             </Card>
           </Link>
         );
@@ -35,20 +44,5 @@ const Searched = () => {
     </Grid>
   );
 };
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  grid-gap: 3rem;
-`;
-
-const Card = styled.div`
-  img {
-    width: 100%;
-    border-radius: 2rem;
-  }
-  h4 {
-    text-aling: center;
-  }
-`;
 
 export default Searched;

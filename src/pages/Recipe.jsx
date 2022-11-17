@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+
 import { useParams } from "react-router-dom";
+import styles from "./Recipe.module.scss";
+
+
 
 const Recipe = () => {
   let params = useParams();
   const [details, setDetails] = useState({});
-  const [activeTab, setActiveTab] = useState("instructions");
 
   const fetchDetails = async () => {
     const data = await fetch(
@@ -20,73 +22,29 @@ const Recipe = () => {
   }, [params.name]);
 
   return (
-    <DetailWrapper>
-      <div>
-        <h2>{details.title}</h2>
-        <img src={details.image} alt={details.title} />
+    <>
+      <div className={styles.detailWrapper}>
+        <div className={styles.image}>
+          <h1>{details.title}</h1>
+          <img src={details.image} alt={details.title} />
+        </div>
+        <h4>
+          Servings: {details.servings} | Preparation time:{" "}
+          {details.readyInMinutes} minutes
+        </h4>
+        {console.log(details)}
+        <h2>Ingredients</h2>
+        <ul>
+          {details.extendedIngredients &&
+            details.extendedIngredients.map((ingredient) => (
+              <li key={ingredient.id}> {ingredient.original}</li>
+            ))}
+        </ul>
+        <h2>Instructions</h2>
+        <h3 dangerouslySetInnerHTML={{ __html: details.instructions }}></h3>
       </div>
-      <Info>
-        <Button
-          className={activeTab === `instructions` ? `active` : ``}
-          onClick={() => setActiveTab("instructions")}
-        >
-          Instructions
-        </Button>
-        <Button
-          className={activeTab === `ingredients` ? `active` : ``}
-          onClick={() => setActiveTab("ingredients")}
-        >
-          Ingredients
-        </Button>
-        {activeTab === "instructions" && (
-          <div>
-            <h3 dangerouslySetInnerHTML={{ __html: details.summary }}></h3>
-
-            <h3 dangerouslySetInnerHTML={{ __html: details.instructions }}></h3>
-          </div>
-        )}
-        {activeTab === "ingredients" && (
-          <ul>
-            {details.extendedIngredients &&
-              details.extendedIngredients.map((ingredient) => (
-                <li key={ingredient.id}> {ingredient.original}</li>
-              ))}
-          </ul>
-        )}
-      </Info>
-    </DetailWrapper>
+    </>
   );
 };
-
-const DetailWrapper = styled.div`
-  margin-top: 10rem;
-  margin-bottom: 5rem;
-  display: flex;
-  h2 {
-    margin-bottom: 2rem;
-  }
-  li {
-    font-size: 1.2rem;
-    line-height: 2.5rem;
-  }
-  .active {
-    background: orangered;
-    color: white;
-  }
-`;
-
-const Button = styled.button`
-  padding: 1rem 2rem;
-  color: black;
-  background: white;
-  border: 2px solid black;
-  width: 12rem;
-  margin-right: 2rem;
-  font-weight: 600;
-`;
-
-const Info = styled.div`
-  margin-left: 10rem;
-`;
 
 export default Recipe;

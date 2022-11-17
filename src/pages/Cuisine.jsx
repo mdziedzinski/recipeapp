@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+
 import { Link, useParams } from "react-router-dom";
+import Grid from "../components/Grid";
+import Card from "../components/Card";
+import Gradient from "../components/Gradient";
+import styles from "./Cuisine.module.scss";
 
 const Cuisine = () => {
   const [cuisine, setCuisine] = useState([]);
@@ -9,7 +13,7 @@ const Cuisine = () => {
 
   const getCuisine = async (name) => {
     const data = await fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${name}`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&diet=${name}`
     );
     const recipes = await data.json();
     setCuisine(recipes.results);
@@ -20,13 +24,17 @@ const Cuisine = () => {
   }, [params.type]);
 
   return (
+
     <Grid>
       {cuisine.map((item) => {
         return (
           <Link key={item.id} to={`/recipe/` + item.id}>
             <Card key={item.id}>
-              <img src={item.image} alt="" />
-              <h4>{item.title}</h4>
+              <div className={styles.recipeImageText}>
+                <p className={styles.recipeTitle}> {item.title}</p>
+              </div>
+              <img src={item.image} alt={item.title} />
+              <Gradient />
             </Card>
           </Link>
         );
@@ -34,21 +42,5 @@ const Cuisine = () => {
     </Grid>
   );
 };
-
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  grid-gap: 3rem;
-`;
-
-const Card = styled.div`
-  img {
-    width: 100%;
-    border-radius: 2rem;
-  }
-  h4 {
-    text-aling: center;
-  }
-`;
 
 export default Cuisine;
