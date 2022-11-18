@@ -1,4 +1,4 @@
-import styles from "./Grid.module.scss";
+import styles from "./styles/Grid.module.scss";
 
 import React from "react";
 

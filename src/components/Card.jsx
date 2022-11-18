@@ -1,4 +1,4 @@
-import styles from "./Card.module.scss";
+import styles from "./styles/Card.module.scss";
 
 import React from "react";
 

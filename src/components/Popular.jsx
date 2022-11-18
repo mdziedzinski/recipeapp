@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { Link } from "react-router-dom";
-import styles from "./Popular.module.scss";
+import styles from "./styles/Popular.module.scss";
 import Grid from "./Grid";
 import Card from "./Card";
 import Gradient from "./Gradient";
@@ -40,10 +40,19 @@ function Popular() {
           <h3>Popular Recipes</h3>
         </Grid>
         <Splide
+          className={styles.slideshow}
           options={{
             perPage: 3,
             drag: "free",
             gap: "1rem",
+            breakpoints: {
+              800: {
+                perPage: 2,
+              },
+              530: {
+                perPage: 1,
+              },
+            },
           }}
         >
           {console.log(popular)}

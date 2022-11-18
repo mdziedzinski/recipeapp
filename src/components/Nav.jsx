@@ -1,14 +1,18 @@
-import styles from "./Nav.module.scss";
-import { FaHome, FaBookOpen, FaRegHeart, FaPlus } from "react-icons/fa";
+import styles from "./styles/Nav.module.scss";
+import { FaHome, FaRegHeart, FaPlus } from "react-icons/fa";
 import Search from "./Search";
+import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { RiMenuUnfoldFill } from "react-icons/ri";
 
 import React from "react";
 
 const Nav = (props) => {
+  const [showLinks, setShowLinks] = useState(false);
+
   return (
     <nav className={styles.nav}>
-      <div className={styles.menu}>
+      <div className={showLinks ? `${styles.hidden}` : `${styles.menu}`}>
         <NavLink className={styles.link} to="/">
           <FaHome />
           Home
@@ -23,6 +27,12 @@ const Nav = (props) => {
           Add
         </Link>
       </div>
+      <button
+        onClick={() => setShowLinks(!showLinks)}
+        className={styles.button}
+      >
+        <RiMenuUnfoldFill />
+      </button>
       <Search />
     </nav>
   );

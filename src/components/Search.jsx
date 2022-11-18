@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import styles from "./Search.module.scss";
+import styles from "./styles/Search.module.scss";
 
 const Search = () => {
   const [input, setInput] = useState("");

@@ -9,20 +9,21 @@
   padding: 1em;
   line-height: 1.5em;
 
-  .image{
+  .image {
     display: flex;
     flex-direction: column;
-  justify-content: center;
-  align-items: center;
-    
+    justify-content: center;
+    align-items: center;
   }
 
   h1 {
     text-align: center;
     padding: 1rem;
+    line-height: normal;
+    font-size: 1.5rem;
   }
 
-  h2{
+  h2 {
     margin: 1rem;
   }
 
@@ -43,6 +44,4 @@
     font-weight: 300;
     margin: 1rem;
   }
-
-  
 }

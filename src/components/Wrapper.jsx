@@ -1,4 +1,4 @@
-import styles from "./Wrapper.module.scss";
+import styles from "./styles/Wrapper.module.scss";
 
 import React from "react";
 

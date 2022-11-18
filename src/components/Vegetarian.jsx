@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
-import styles from "./Vegetarian.module.scss";
+import styles from "./styles/Vegetarian.module.scss";
 import { Link } from "react-router-dom";
 import Grid from "./Grid";
 import Card from "./Card";

@@ -1,4 +1,4 @@
-import styles from "./Gradient.module.scss";
+import styles from "./styles/Gradient.module.scss";
 
 import React from "react";
 
