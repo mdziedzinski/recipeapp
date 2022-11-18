@@ -1,0 +1,106 @@
+@import "./breakpoints.module.scss";
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  .menu {
+    font-size: 1rem;
+    display: flex;
+
+    svg {
+      margin-inline: 0.3rem;
+    }
+
+    .link {
+      width: 100%;
+      display: flex;
+      margin-inline: 1rem;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      position: relative;
+
+      &:before {
+        content: "";
+        background-color: #d5eeee;
+        position: absolute;
+        left: 0;
+        bottom: 3px;
+        width: 100%;
+        height: 1px;
+        z-index: -1;
+        transition: all 0.3s ease-in-out;
+      }
+
+      &:hover::before {
+        bottom: 0;
+        height: 100%;
+      }
+    }
+    @media (max-width: 800px) {
+      display: none;
+    }
+  }
+}
+
+.button {
+  display: none;
+  cursor: pointer;
+
+  @media (max-width: 800px) {
+    display: flex;
+    border: none;
+    background-color: white;
+    cursor: ponter;
+
+    svg {
+      font-size: 2rem;
+    }
+  }
+}
+
+.hidden {
+  @media (max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 6rem;
+    height: auto;
+    width: 100%;
+    background-color: #d5eeee;
+    text-decoration: none;
+    padding: 2rem;
+
+    .link {
+      z-index: 10;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin: 0.5rem;
+      text-decoration: none;
+      color: black;
+      position: relative;
+
+      &:before {
+        content: "";
+        background-color: rgb(181, 144, 248);
+        position: absolute;
+        left: 0;
+        bottom: 3px;
+        width: 100%;
+        height: 1px;
+        z-index: -1;
+        transition: all 0.3s ease-in-out;
+      }
+
+      &:hover::before {
+        bottom: 0;
+        height: 100%;
+      }
+    }
+  }
+}
