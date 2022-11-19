@@ -5,6 +5,7 @@ import Search from "./Search";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { RiMenuUnfoldFill } from "react-icons/ri";
+import Tooltip from "@mui/material/Tooltip";
 
 import React from "react";
 
@@ -14,7 +15,7 @@ const Nav = (props) => {
   return (
     <nav className={styles.nav}>
       <div className={showLinks ? `${styles.hidden}` : `${styles.menu}`}>
-        <NavLink className={styles.link} to="/">
+        <NavLink className={styles.link} to="/" end>
           <FaHome />
           Home
         </NavLink>
@@ -24,14 +25,17 @@ const Nav = (props) => {
           Categories
         </NavLink>
 
-        <Link className={styles.link} to="/">
-          <FaRegHeart />
-          Favorites
-        </Link>
-        <Link className={styles.link} to="/mealplan/">
+        <Tooltip title="This functionality is not working yet ¯\_(ツ)_/¯" arrow>
+          <NavLink className={styles.link} to="/" end>
+            {" "}
+            <FaRegHeart />
+            Favorites
+          </NavLink>
+        </Tooltip>
+        <NavLink className={styles.link} to="/mealplan/" end>
           <FaCalendar />
           Generate Mealplan
-        </Link>
+        </NavLink>
       </div>
       <button
         onClick={() => setShowLinks(!showLinks)}

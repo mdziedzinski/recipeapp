@@ -23,6 +23,10 @@
       font-weight: bold;
       position: relative;
 
+      // &:global.active {
+      //   background-color: #7886f1;
+      // }
+
       &:before {
         content: "";
         background-color: #d5eeee;
@@ -39,7 +43,12 @@
         bottom: 0;
         height: 100%;
       }
+      &:global.active::before {
+        bottom: 0;
+        height: 100%;
+      }
     }
+
     @media (max-width: 800px) {
       display: none;
     }
