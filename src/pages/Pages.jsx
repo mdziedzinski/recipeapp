@@ -10,7 +10,7 @@ function Pages(props) {
   return (
     <Routes>
       <Route exact path="/" element={<Home />} />
-      <Route exact path="/mealplan/" element={<MealPlan />} />
+      <Route exact path="mealplan" element={<MealPlan />} />
       <Route exact={true} path="/diet/:type" element={<Cuisine />} />
       <Route path="/searched/:search" element={<Searched />} />
       <Route path="/recipe/:name" element={<Recipe />} />

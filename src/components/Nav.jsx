@@ -1,5 +1,6 @@
 import styles from "./styles/Nav.module.scss";
 import { FaHome, FaRegHeart, FaCalendar } from "react-icons/fa";
+import { GiOpenBook } from "react-icons/gi";
 import Search from "./Search";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
@@ -18,11 +19,16 @@ const Nav = (props) => {
           Home
         </NavLink>
 
+        <NavLink className={styles.link} to="diet/omnivore/">
+          <GiOpenBook />
+          Categories
+        </NavLink>
+
         <Link className={styles.link} to="/">
           <FaRegHeart />
           Favorites
         </Link>
-        <Link className={styles.link} href="/mealplan/">
+        <Link className={styles.link} to="/mealplan/">
           <FaCalendar />
           Generate Mealplan
         </Link>

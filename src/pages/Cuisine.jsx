@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import Category from "../components/Category";
 
 import { Link, useParams } from "react-router-dom";
 import Grid from "../components/Grid";
@@ -24,22 +25,25 @@ const Cuisine = (props) => {
   }, [params.type]);
 
   return (
-    <Grid>
-      {cuisine.map((item) => {
-        return (
-          <Link key={item.id} to={`/recipe/` + item.id}>
-            <Card key={item.id}>
-              <div className={styles.recipeImageText}>
-                <p className={styles.recipeTitle}> {item.title}</p>
-              </div>
-              <img src={item.image} alt={item.title} />
+    <>
+      <Category />
+      <Grid>
+        {cuisine.map((item) => {
+          return (
+            <Link key={item.id} to={`/recipe/` + item.id}>
+              <Card key={item.id}>
+                <div className={styles.recipeImageText}>
+                  <p className={styles.recipeTitle}> {item.title}</p>
+                </div>
+                <img src={item.image} alt={item.title} />
 
-              <Gradient />
-            </Card>
-          </Link>
-        );
-      })}
-    </Grid>
+                <Gradient />
+              </Card>
+            </Link>
+          );
+        })}
+      </Grid>
+    </>
   );
 };
 

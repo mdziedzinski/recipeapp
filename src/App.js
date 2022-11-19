@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Nav />
-        <Category />
+       
         <Pages />
       </BrowserRouter>
     </div>
