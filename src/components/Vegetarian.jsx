@@ -8,6 +8,8 @@ import MealList from "./MealList";
 const Vegetarian = () => {
   const [data, setData] = useState();
 
+  
+
   useEffect(() => {
     // fetch data
     const dataFetch = async () => {

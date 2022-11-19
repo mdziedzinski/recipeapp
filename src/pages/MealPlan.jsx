@@ -47,7 +47,7 @@ const MealPlan = (props) => {
           <option  value="vegetarian">
             vegetarian
           </option>
-          <option value="vegan">vegan</option>>
+          <option value="vegan">vegan</option>
         </select>
         <p className={styles.inputChoice}>
           My daily goal is <br />

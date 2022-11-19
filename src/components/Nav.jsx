@@ -26,11 +26,11 @@ const Nav = (props) => {
         </NavLink>
 
         <Tooltip title="This functionality is not working yet ¯\_(ツ)_/¯" arrow>
-          <NavLink className={styles.link} to="/" end>
+          <Link className={styles.link} to="/" end>
             {" "}
             <FaRegHeart />
             Favorites
-          </NavLink>
+          </Link>
         </Tooltip>
         <NavLink className={styles.link} to="/mealplan/" end>
           <FaCalendar />
