@@ -1,0 +1,61 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 2rem;
+  flex-direction: column;
+
+  h1 {
+    text-align: center;
+    background: #d5eeee;
+  }
+
+  .controls {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+  }
+
+  input {
+    margin: 1rem;
+    width: auto;
+  }
+
+  .select {
+    margin: 1rem;
+    font-size: 1rem;
+    text-align: center;
+
+    &:hover {
+      background: #a7b4e8;
+      transition: 0.5s;
+    }
+  }
+
+    .inputChoice {
+      margin: 1rem;
+      font-size: 1.5rem;
+      text-align: center;
+      span {
+        font-weight: bold;
+      }
+    }
+
+    button {
+      margin: 2rem;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 1.5rem;
+      background: #d5eeee;
+      cursor: pointer;
+      border-radius: 25px;
+      border: 0;
+      box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+
+      &:hover {
+        background: #a7b4e8;
+        transition: 0.5s;
+      }
+    }
+  }
+
