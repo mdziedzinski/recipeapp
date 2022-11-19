@@ -3,9 +3,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./Recipe.module.scss";
 
-
-
-const Recipe = () => {
+const Recipe = (props) => {
+  
   let params = useParams();
   const [details, setDetails] = useState({});
 
@@ -21,6 +20,8 @@ const Recipe = () => {
     fetchDetails();
   }, [params.name]);
 
+
+
   return (
     <>
       <div className={styles.detailWrapper}>
@@ -32,6 +33,7 @@ const Recipe = () => {
           Servings: {details.servings} | Preparation time:{" "}
           {details.readyInMinutes} minutes
         </h4>
+       
         {console.log(details)}
         <h2>Ingredients</h2>
         <ul>

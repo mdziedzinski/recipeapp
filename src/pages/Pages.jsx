@@ -3,6 +3,7 @@ import Home from "./Home";
 import Cuisine from "./Cuisine";
 import Searched from "./Searched";
 import Recipe from "./Recipe";
+import MealPlan from "./MealPlan";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 function Pages(props) {
@@ -12,6 +13,7 @@ function Pages(props) {
       <Route exact={true} path="/diet/:type" element={<Cuisine />} />
       <Route path="/searched/:search" element={<Searched />} />
       <Route path="/recipe/:name" element={<Recipe />} />
+      <Route path="/mealplan/" element={<MealPlan />} />
     </Routes>
   );
 }

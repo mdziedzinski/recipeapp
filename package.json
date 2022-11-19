@@ -1,7 +1,7 @@
 {
   "name": "recipesapp",
   "version": "0.1.0",
-  "homepage": "https://mdziedzinski.github.io/recipesapp",
+  "homepage": "https://6378c500ccca0b378f1bb5fe--benevolent-muffin-09c9df.netlify.app",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",

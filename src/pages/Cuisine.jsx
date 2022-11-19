@@ -7,7 +7,7 @@ import Card from "../components/Card";
 import Gradient from "../components/Gradient";
 import styles from "./Cuisine.module.scss";
 
-const Cuisine = () => {
+const Cuisine = (props) => {
   const [cuisine, setCuisine] = useState([]);
   let params = useParams();
 
@@ -24,7 +24,6 @@ const Cuisine = () => {
   }, [params.type]);
 
   return (
-
     <Grid>
       {cuisine.map((item) => {
         return (
@@ -34,6 +33,7 @@ const Cuisine = () => {
                 <p className={styles.recipeTitle}> {item.title}</p>
               </div>
               <img src={item.image} alt={item.title} />
+
               <Gradient />
             </Card>
           </Link>
