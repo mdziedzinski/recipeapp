@@ -1,5 +1,5 @@
 import styles from "./styles/Nav.module.scss";
-import { FaHome, FaRegHeart, FaPlus } from "react-icons/fa";
+import { FaHome, FaRegHeart, FaCalendar } from "react-icons/fa";
 import Search from "./Search";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
@@ -22,9 +22,9 @@ const Nav = (props) => {
           <FaRegHeart />
           Favorites
         </Link>
-        <Link className={styles.link} href="/">
-          <FaPlus />
-          Add
+        <Link className={styles.link} href="/mealplan/">
+          <FaCalendar />
+          Generate Mealplan
         </Link>
       </div>
       <button

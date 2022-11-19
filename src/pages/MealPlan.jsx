@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import Grid from "../components/Grid";
-import Card from "../components/Card";
-import Gradient from "../components/Gradient";
+import { useLocation } from "react-router-dom";
+
 import styles from "./Cuisine.module.scss";
 import MealList from "../components/MealList";
 
@@ -10,34 +9,33 @@ const MealPlan = (props) => {
   const [mealData, setMealData] = useState(null);
   const [calories, setCalories] = useState(2000);
 
-  let params = useParams();
-
-  const getMealData = async (name) => {
-    const data = await fetch(
-      `https://api.spoonacular.com/mealplanner/generate?apiKey=${process.env.REACT_APP_API_KEY}&timeFrame=day&targetCalories=${calories}`
-    );
-    const recipes = await data.json();
-      setMealData(recipes);
-     console.log(recipes)
-  };
-
-  useEffect(() => {
-    getMealData(params.search);
-  }, [params.search]);
-
   const handleChange = (e) => {
     setCalories(e.target.value);
   };
 
+  const getMealData = async (name) => {
+    fetch(
+      `https://api.spoonacular.com/mealplanner/generate?apiKey=${process.env.REACT_APP_API_KEY}&timeFrame=day&targetCalories=${calories}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setMealData(data);
+        console.log(data);
+      })
+      .catch(() => {
+        console.log("error");
+      });
+  };
+
   return (
-    <div className={styles.controls}>
+    <div >
       <input
         onChange={handleChange}
         type="number"
         placeholder="Calories"
       ></input>
-          <button onClick={getMealData}>Get meal plan for the day</button>
-          {mealData && <MealList mealData={mealData}/>} 
+      <button onClick={getMealData}>Get meal plan for the day</button>
+      {mealData && <MealList mealData={mealData} />}
     </div>
   );
 };

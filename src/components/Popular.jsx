@@ -36,9 +36,9 @@ function Popular() {
   return (
     <div>
       <Wrapper>
-        <Grid>
-          <h3>Popular Recipes</h3>
-        </Grid>
+      
+          <h2>Popular Recipes</h2>
+      
         <Splide
           className={styles.slideshow}
           options={{

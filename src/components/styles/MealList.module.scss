@@ -1,0 +1,26 @@
+.nutrients {
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 1rem;
+  }
+
+  li {
+    background-color: #d5eeee;
+    border-radius: 25px;
+    padding: 5px;
+    margin: 0.5rem;
+    width: auto;
+
+    &:hover {
+      background: #a7b4e8;
+      transition: 0.5s;
+    }
+  }
+
+  span {
+    font-weight: bold;
+  }
+}
