@@ -22,4 +22,4 @@ It fetches recipes from Spoonocular API and displays them in different categorie
 
 ## Live website
 
-- [Netlify](https://mdziedzinski.github.io/social-proof-section/)
+- [Netlify](https://benevolent-muffin-09c9df.netlify.app/)
